@@ -11,6 +11,7 @@
             padding: 0;
             text-align: center; /* Center text for the main content */
             background-color: #f8f8f8;
+            overflow: hidden; /* Hide overflow to prevent scrolling */
         }
         header {
             padding: 20px;
@@ -27,16 +28,17 @@
             border-radius: 20px; /* Round corners for the app icon */
         }
         .hero {
-            padding: 40px 20px;
+            padding: 30px 20px;
+            margin-bottom: 40px; /* Make sure the content fits */
         }
         .hero h1 {
-            font-size: 3em;
-            margin: 0 0 20px;
+            font-size: 2.5em; /* Adjusted for smaller screen sizes */
+            margin: 0 0 15px;
         }
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .buttons a {
             text-decoration: none;
@@ -48,10 +50,11 @@
         }
         /* Screen mockup image styling */
         .app-preview {
-            margin: 40px 0;
+            margin: 20px 0;
         }
         .app-preview img {
-            max-width: 80%; /* Adjust the width to fit the page */
+            max-width: 60%; /* Reduce the width to 60% to make it 25% smaller */
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
