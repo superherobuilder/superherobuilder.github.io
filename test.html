@@ -9,12 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: left;
+            text-align: center; /* Center all text in the body */
             background-color: #f8f8f8;
         }
         header {
             padding: 20px;
             display: flex;
+            justify-content: center; /* Center the logo and app icon */
             align-items: center;
         }
         header img {
@@ -53,6 +54,20 @@
             border-radius: 20px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -69,5 +84,10 @@
             </a>
         </div>
     </div>
+
+    <footer>
+        <a href="privacy.html">Privacy</a> | 
+        <a href="terms.html">Terms</a>
+    </footer>
 </body>
 </html>
