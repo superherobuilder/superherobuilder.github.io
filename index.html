@@ -38,9 +38,18 @@
             padding-top: 100px;
         }
         .title {
-            font-size: 3rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px #000;
+            font-family: "Arial Black", Arial, sans-serif;
+            text-align: center;
+        }
+        .title .superhero {
+            font-size: 4rem; /* Adjust size based on screen width if necessary */
+            color: yellow;
+            text-shadow: 3px 3px 0 red;
+        }
+        .title .builder {
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 3px 3px 0 blue;
         }
         .subtitle {
             margin-top: 20px;
@@ -77,7 +86,10 @@
         <a href="terms.html">Terms</a>
     </div>
     <div class="content">
-        <div class="title">Superhero Builder</div>
+        <div class="title">
+            <div class="superhero">SUPERHERO</div>
+            <div class="builder">BUILDER</div>
+        </div>
         <div class="subtitle">Create, Customize, and Battle with Your Heroes!</div>
         <div class="buttons">
             <a href="#create">Create</a>
