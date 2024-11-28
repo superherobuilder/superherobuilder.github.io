@@ -9,14 +9,17 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: left;
             background-color: #f8f8f8;
         }
         header {
             padding: 20px;
+            display: flex;
+            align-items: center;
         }
         header img {
-            max-width: 150px;
+            height: 100px; /* Set height of logo */
+            margin-right: 20px; /* Space between logo and app icon */
         }
         .hero {
             padding: 40px 20px;
@@ -46,31 +49,12 @@
             border-radius: 20px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        .sections {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .section {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: white;
-        }
-        .section img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .section h3 {
-            margin: 10px 0 5px;
-        }
     </style>
 </head>
 <body>
     <header>
         <img src="sbblogo1.png" alt="Logo">
+        <img src="appicon.png" alt="App Icon">
     </header>
     <div class="hero">
         <h1>Superhero Builder</h1>
@@ -79,26 +63,6 @@
             <a href="https://apps.apple.com/us/app/superhero-builder-and-battles/id6738335070">
                 <img src="appstore.png" alt="Download on the App Store">
             </a>
-        </div>
-    </div>
-    <div class="app-preview">
-        <img src="appicon.png" alt="App Icon">
-    </div>
-    <div class="sections">
-        <div class="section">
-            <img src="https://via.placeholder.com/400x200" alt="Section 1">
-            <h3>Customization</h3>
-            <p>Create a superhero that matches your personality.</p>
-        </div>
-        <div class="section">
-            <img src="https://via.placeholder.com/400x200" alt="Section 2">
-            <h3>Training</h3>
-            <p>Follow unique challenges to develop your superhero abilities.</p>
-        </div>
-        <div class="section">
-            <img src="https://via.placeholder.com/400x200" alt="Section 3">
-            <h3>Adventure</h3>
-            <p>Embark on thrilling missions to save the world.</p>
         </div>
     </div>
 </body>
