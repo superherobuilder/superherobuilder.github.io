@@ -3,99 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superhero Builder</title>
+    <title>Superhero Builder and Battles Mobile App</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('Simulator Screenshot - iPad (10th generation) - 2024-11-20 at 20.32.29.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
-        .menu {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 10;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            padding-top: 100px;
-        }
-        .title {
-            font-family: "Arial Black", Arial, sans-serif;
-            text-align: center;
-        }
-        .title .superhero {
-            font-size: 4rem; /* Adjust size based on screen width if necessary */
-            color: yellow;
-            text-shadow: 3px 3px 0 red;
-        }
-        .title .builder {
-            font-size: 4.5rem;
-            color: white;
-            text-shadow: 3px 3px 0 blue;
-        }
-        .subtitle {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 5px #000;
-        }
-        .buttons {
-            margin-top: 40px;
+
+        body {
+            background: linear-gradient(135deg, #000000 55%, #800080);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
             align-items: center;
         }
-        .buttons a {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1rem;
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            background: linear-gradient(45deg, orange, red);
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
         }
-        .buttons a:hover {
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            height: calc(100vh - 140px);
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .carousel-item {
+            display: none;
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .carousel-item.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 75vh;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            white-space: nowrap;
+            color: #e0e0e0;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
             opacity: 0.9;
+        }
+
+        .store-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .store-button {
+            background: transparent;
+            padding: 0;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .store-button img {
+            height: 40px;
+            width: auto;
+        }
+
+        .store-button:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                height: auto;
+                padding: 10px;
+            }
+
+            .store-buttons {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .hero-image {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-image img.screenshot1,
+            .hero-image img.screenshot2 {
+                max-width: 70%;
+                transform: none;
+            }
+
+            .hero-image img.screenshot1:hover,
+            .hero-image img.screenshot2:hover {
+                transform: none;
+            }
+
+            .hero-content {
+                padding: 10px;
+            }
+
+            .carousel-item {
+                max-width: 85%;
+            }
+        }
+
+        .logo img.app-icon {
+            height: 60px;
+            width: 60px;
+            border-radius: 15px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .logo img.app-logo {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        .hero-content .description {
+            margin-top: 20px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .hero-content ul {
+            list-style-position: inside;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .hero-content li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            padding: 15px 40px;
+            color: white;
+            height: 50px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .copyright {
+            text-align: left;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            text-align: center;
+            grid-column: 2;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: calc(100vh - 140px);
+            }
+        }
+
+        .hero-content .main-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: bold;
+            white-space: normal;
+            max-width: 100%;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            font-weight: normal;
+        }
+
+        .hero-content .description {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #cccccc;
+            margin-bottom: 30px;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
-    <div class="menu">
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-    </div>
-    <div class="content">
-        <div class="title">
-            <div class="superhero">SUPERHERO</div>
-            <div class="builder">BUILDER</div>
+    <header>
+        <div class="logo">
+            <img src="appicon.png" alt="App Icon" class="app-icon">
+            <img src="sbblogo1.png" alt="Superhero Builder and Battles" class="app-logo">
         </div>
-        <div class="subtitle">Create, Customize, and Battle with Your Heroes!</div>
-        <div class="buttons">
-            <a href="#create">Create</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#battle">Battle</a>
+        <nav>
+            <a href="support.html">Support</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">Superhero Builder and Battles</h1>
+            <h2 class="subtitle">Unleash Your Inner Hero</h2>
+            <p class="description">Build your perfect superhero and send them into thrilling battles today!</p>
+            <div class="store-buttons">
+                <a href="https://apps.apple.com/us/app/superhero-builder-and-battles/id6738335070" class="store-button">
+                    <img src="appstore.png" alt="Download on App Store" height="40">
+                </a>
+            </div>
         </div>
-    </div>
+        <div class="hero-image">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <img src="sbb1.png" alt="Superhero Builder and Battles Screenshot 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="sbb2.png" alt="Superhero Builder and Battles Screenshot 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="sbb3.png" alt="Superhero Builder and Battles Screenshot 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="sbb4.png" alt="Superhero Builder and Battles Screenshot 4">
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" onclick="showSlide(0)"></div>
+                    <div class="carousel-dot" onclick="showSlide(1)"></div>
+                    <div class="carousel-dot" onclick="showSlide(2)"></div>
+                    <div class="carousel-dot" onclick="showSlide(3)"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span class="copyright">© 2024 Superhero Builder and Battles</span>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
+        <div></div>  <!-- Empty div for the third column -->
+    </footer>
+
+    <script>
+        function showSlide(index) {
+            const items = document.querySelectorAll('.carousel-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            items.forEach(item => item.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            items[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Auto-rotate every 5 seconds
+        let currentSlide = 0;
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 4;
+            showSlide(currentSlide);
+        }, 5000);
+    </script>
 </body>
-</html>
+</html> 
